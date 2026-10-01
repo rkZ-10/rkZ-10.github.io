@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Arkesh Jayakumar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* layout: single-column editorial scroll, 720px text column, full-width metric & timeline bands, left rule as spine */
+  :root{
+    --bg:#f5f6f4; --surface:#ffffff; --fg:#13181a; --muted:#59636a;
+    --accent:#0f766e; --accent-soft:#e3efed; --border:#dbe0dd; --mono-chip:#eef1ef;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0c1312; --surface:#121b19; --fg:#e9ece9; --muted:#8fa09a;
+      --accent:#34d1bb; --accent-soft:#163631; --border:#223430; --mono-chip:#182622;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0c1312; --surface:#121b19; --fg:#e9ece9; --muted:#8fa09a;
+    --accent:#34d1bb; --accent-soft:#163631; --border:#223430; --mono-chip:#182622;
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--fg);
+    font-family:"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    margin:0; padding-inline:20px; padding-block:48px;
+    line-height:1.6;
+  }
+  ::selection{ background:var(--accent-soft); color:var(--fg); }
+
+  .wrap{ max-width:760px; margin:0 auto; }
+  .wide{ max-width:980px; margin:0 auto; }
+
+  h1,h2,h3{ font-family:"Spectral", Georgia, serif; text-wrap:balance; margin:0; }
+  .eyebrow{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent); margin:0 0 10px;
+  }
+  .mono{ font-family:"IBM Plex Mono", ui-monospace, monospace; }
+
+  a{ color:var(--accent); }
+  p{ color:var(--fg); max-width:65ch; }
+  .muted{ color:var(--muted); }
+
+  /* ---------- Hero ---------- */
+  header.hero{ padding-block:8px 44px; }
+  .hero-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap:16px; flex-wrap:wrap; margin-bottom:22px;
+  }
+  .hero h1{ font-size:clamp(2rem, 5vw, 2.9rem); font-weight:600; line-height:1.08; }
+  .role{
+    font-family:"IBM Plex Mono", monospace; font-size:0.95rem; color:var(--accent);
+    margin-top:10px;
+  }
+  .location{ font-size:0.85rem; color:var(--muted); margin-top:4px; }
+
+  .contact-card{
+    border:1px solid var(--border); border-radius:10px; background:var(--surface);
+    padding:14px 16px; font-size:0.86rem; min-width:220px;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .contact-row{ display:flex; justify-content:space-between; gap:10px; align-items:center; }
+  .contact-row span:first-child{ color:var(--muted); font-size:0.74rem; text-transform:uppercase; letter-spacing:0.07em; font-family:"IBM Plex Mono",monospace; }
+  .copy-btn{
+    font-family:"IBM Plex Mono", monospace; font-size:0.72rem; border:1px solid var(--border);
+    background:transparent; color:var(--muted); border-radius:5px; padding:2px 7px; cursor:pointer;
+  }
+  .copy-btn:hover{ border-color:var(--accent); color:var(--accent); }
+
+  .summary{ font-size:1.08rem; max-width:62ch; }
+  .summary strong{ color:var(--fg); font-weight:600; }
+
+  /* ---------- Metrics ---------- */
+  .metrics{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--border); border:1px solid var(--border); border-radius:12px;
+    overflow:hidden; margin-block:8px 40px;
+  }
+  .metric{
+    background:var(--surface); padding:20px 16px; display:flex; flex-direction:column; gap:4px;
+  }
+  .metric .num{
+    font-family:"IBM Plex Mono", monospace; font-variant-numeric:tabular-nums;
+    font-size:clamp(1.3rem,3vw,1.7rem); font-weight:500; color:var(--accent);
+  }
+  .metric .label{ font-size:0.76rem; color:var(--muted); line-height:1.35; }
+
+  /* ---------- Section shell ---------- */
+  section{ padding-block:36px; border-top:1px solid var(--border); }
+  section:first-of-type{ border-top:none; }
+  .section-head{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:22px; flex-wrap:wrap; }
+  .section-head h2{ font-size:1.5rem; font-weight:600; }
+
+  /* ---------- Skills ---------- */
+  .skill-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px 28px; }
+  .skill-group .k{ font-family:"IBM Plex Mono",monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:8px; }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:6px; }
+  .tag{
+    font-family:"IBM Plex Mono",monospace; font-size:0.78rem; background:var(--mono-chip);
+    color:var(--fg); padding:4px 9px; border-radius:6px; border:1px solid var(--border);
+  }
+
+  /* ---------- Timeline ---------- */
+  .timeline{ position:relative; padding-left:26px; }
+  .timeline::before{
+    content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1.5px; background:var(--border);
+  }
+  .role-item{ position:relative; padding-bottom:28px; }
+  .role-item:last-child{ padding-bottom:0; }
+  .role-item::before{
+    content:""; position:absolute; left:-26px; top:5px; width:9px; height:9px; border-radius:50%;
+    background:var(--accent); border:2px solid var(--bg);
+  }
+  .role-item .rh{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline; }
+  .role-item .rtitle{ font-weight:600; font-size:1rem; }
+  .role-item .rdate{ font-family:"IBM Plex Mono",monospace; font-size:0.76rem; color:var(--muted); white-space:nowrap; }
+  .role-item ul{ margin:8px 0 0; padding-left:18px; }
+  .role-item li{ font-size:0.9rem; color:var(--fg); margin-bottom:5px; }
+  .role-item li::marker{ color:var(--accent); }
+
+  /* ---------- Case studies ---------- */
+  .case{
+    background:var(--surface); border:1px solid var(--border); border-radius:14px;
+    padding:28px 26px; margin-bottom:22px;
+  }
+  .case:last-child{ margin-bottom:0; }
+  .case-head{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline; margin-bottom:6px; }
+  .case h3{ font-size:1.3rem; font-weight:600; }
+  .case-tag{ font-family:"IBM Plex Mono",monospace; font-size:0.72rem; color:var(--accent); background:var(--accent-soft); padding:3px 9px; border-radius:20px; }
+  .case-sub{ color:var(--muted); font-size:0.92rem; margin-bottom:18px; }
+  .case-block{ margin-bottom:16px; }
+  .case-block:last-child{ margin-bottom:0; }
+  .case-block .k{ font-family:"IBM Plex Mono",monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:6px; }
+  .case-block p{ font-size:0.94rem; max-width:none; }
+  .outcome-stat{ font-family:"IBM Plex Mono",monospace; color:var(--fg); font-weight:500; }
+
+  .diagram{ margin:14px 0 18px; }
+  .diagram svg{ width:100%; height:auto; display:block; }
+  .diagram-caption{ font-size:0.74rem; color:var(--muted); margin-top:8px; text-align:center; }
+
+  /* ---------- Footer ---------- */
+  footer{ padding-top:36px; border-top:1px solid var(--border); }
+  .edu{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:22px; }
+  .edu .deg{ font-weight:600; }
+  .edu .yr{ font-family:"IBM Plex Mono",monospace; color:var(--muted); font-size:0.85rem; }
+  .foot-links{ display:flex; gap:18px; flex-wrap:wrap; font-size:0.85rem; }
+  .foot-note{ color:var(--muted); font-size:0.78rem; margin-top:24px; }
+
+  @media (max-width:640px){
+    .metrics{ grid-template-columns:repeat(2,1fr); }
+    .skill-grid{ grid-template-columns:1fr; }
+    .hero-top{ flex-direction:column; }
+    .contact-card{ width:100%; }
+  }
+
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{ animation:rise 0.6s ease both; }
+    .reveal:nth-of-type(2){ animation-delay:0.06s; }
+    .reveal:nth-of-type(3){ animation-delay:0.12s; }
+    @keyframes rise{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:translateY(0); } }
+  }
+</style>
+
+</head>
+<body>
+<header class="hero wrap reveal">
+  <div class="hero-top">
+    <div>
+      <p class="eyebrow">Backend &amp; Distributed Systems</p>
+      <h1>Arkesh Jayakumar</h1>
+      <div class="role">Lead Backend Engineer — SysCloud Technologies</div>
+      <div class="location">Hyderabad, Telangana, India</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-row">
+        <span>Email</span>
+        <span style="display:flex;align-items:center;gap:8px;">
+          <span class="mono" id="email-text">arkeshjayakumar@gmail.com</span>
+          <button class="copy-btn" id="copy-email" type="button">Copy</button>
+        </span>
+      </div>
+      <div class="contact-row">
+        <span>Phone</span>
+        <span class="mono">+91 89395 96433</span>
+      </div>
+      <div class="contact-row">
+        <span>LinkedIn</span>
+        <a href="https://linkedin.com/in/arkesh-jayakumar-836866190" target="_blank" rel="noopener">arkesh-jayakumar</a>
+      </div>
+    </div>
+  </div>
+  <p class="summary">I build and scale distributed backend systems on AWS — from credential infrastructure serving <strong>195 internal clients at ~9M requests a day</strong>, to the fan-in signal that keeps an asynchronous sync pipeline honest. I'm currently the product-logic authority on a PHP-to-Go rewrite of SysCloud's flagship security product, and I direct and mentor a team of <strong>7 engineers</strong> along the way.</p>
+</header>
+
+<div class="wrap">
+  <div class="metrics reveal">
+    <div class="metric">
+      <div class="num">9M+</div>
+      <div class="label">API requests/day through Secrets Manager v3</div>
+    </div>
+    <div class="metric">
+      <div class="num">99.9%+</div>
+      <div class="label">success rate at that volume</div>
+    </div>
+    <div class="metric">
+      <div class="num">195</div>
+      <div class="label">registered clients, 10 teams, 7 AWS regions</div>
+    </div>
+    <div class="metric">
+      <div class="num">7</div>
+      <div class="label">engineers directed &amp; mentored</div>
+    </div>
+  </div>
+</div>
+
+<section class="wrap">
+  <div class="section-head"><h2>Stack</h2></div>
+  <div class="skill-grid">
+    <div class="skill-group">
+      <div class="k">Languages</div>
+      <div class="tag-row">
+        <span class="tag">Go</span><span class="tag">TypeScript</span><span class="tag">PHP</span>
+        <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C/C++</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="k">Backend</div>
+      <div class="tag-row">
+        <span class="tag">Microservices</span><span class="tag">REST API Design</span>
+        <span class="tag">Distributed Systems</span><span class="tag">Node.js</span>
+        <span class="tag">Config-Driven Orchestration</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="k">Cloud — AWS</div>
+      <div class="tag-row">
+        <span class="tag">S3</span><span class="tag">Lambda</span><span class="tag">DynamoDB</span>
+        <span class="tag">KMS</span><span class="tag">EC2</span><span class="tag">ECS</span>
+        <span class="tag">ECR</span><span class="tag">Bedrock</span><span class="tag">CloudWatch</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="k">Data &amp; Observability</div>
+      <div class="tag-row">
+        <span class="tag">PostgreSQL</span><span class="tag">MS SQL Server</span><span class="tag">Redis</span>
+        <span class="tag">Grafana</span><span class="tag">Kibana</span>
+      </div>
+    </div>
+    <div class="skill-group" style="grid-column:1/-1;">
+      <div class="k">Security</div>
+      <div class="tag-row">
+        <span class="tag">JWT &amp; Diffie-Hellman Auth</span><span class="tag">Compliance / DLP Detection</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head"><h2>Experience</h2></div>
+  <div class="timeline">
+    <div class="role-item">
+      <div class="rh">
+        <span class="rtitle">Lead Software Engineer</span>
+        <span class="rdate">Jun 2023 — Present</span>
+      </div>
+      <ul>
+        <li>Product-logic authority on the PHP-to-Go modernization of the flagship Security Product, validating rebuilt components against original behavior and writing implementation specs.</li>
+        <li>Led the Security Product's MSSQL-to-PostgreSQL migration, catching a critical org-unit cascade bug before production.</li>
+        <li>Upgraded Secrets Manager to Diffie-Hellman auth and multi-tenant KMS-encrypted role data; it now runs at ~9M requests/day.</li>
+        <li>Directs and mentors a team of 7 engineers across parallel workstreams, running stand-ups, sprint planning, and hiring.</li>
+      </ul>
+    </div>
+    <div class="role-item">
+      <div class="rh">
+        <span class="rtitle">Senior Software Engineer</span>
+        <span class="rdate">Jul 2021 — May 2023</span>
+      </div>
+      <ul>
+        <li>Owned the internal Secrets Manager API end to end, replacing an unauthenticated trust model with validated, rotating JWTs across 88 client services.</li>
+        <li>Sole owner of the legacy Security Product — a 185K-line PHP codebase doing real-time compliance, PII, and threat detection across two SaaS platforms.</li>
+        <li>Founding engineer on Cloud Mover and its CM Runner orchestration framework.</li>
+      </ul>
+    </div>
+    <div class="role-item">
+      <div class="rh">
+        <span class="rtitle">Software Engineer</span>
+        <span class="rdate">Jul 2020 — Jun 2021</span>
+      </div>
+      <ul>
+        <li>Built phishing and ransomware detection for the legacy Security Product.</li>
+      </ul>
+    </div>
+    <div class="role-item">
+      <div class="rh">
+        <span class="rtitle">Intern</span>
+        <span class="rdate">Jan 2020 — Jun 2020</span>
+      </div>
+      <ul>
+        <li>Onboarded onto the Security Product's architecture ahead of taking ownership.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="wide">
+  <div class="section-head">
+    <h2>Case studies</h2>
+    <span class="muted mono" style="font-size:0.78rem;">3 deep dives</span>
+  </div>
+
+  <div class="case">
+    <div class="case-head">
+      <h3>Securing credential infrastructure at scale</h3>
+      <span class="case-tag">Secrets Manager</span>
+    </div>
+    <div class="case-sub">Go · AWS KMS &amp; DynamoDB · Diffie-Hellman key exchange</div>
+    <div class="case-block">
+      <div class="k">Problem</div>
+      <p>SysCloud's internal Secrets Manager API started with no real authentication at all — a free-text header stood in for a credential, brokering database connection strings, encryption keys, and service-account credentials to every internal service that asked.</p>
+    </div>
+    <div class="case-block">
+      <div class="k">Approach</div>
+      <p>First pass: credential-validated, 1-hour-expiry JWTs re-verified on every request across 15 protected endpoints, plus zero-downtime credential rotation. As part of a later company-wide hardening push, upgraded the whole system again to Diffie-Hellman key exchange, building a purpose-built client package and extending multi-tenant support for KMS-encrypted, DynamoDB-stored role data.</p>
+    </div>
+    <div class="case-block">
+      <div class="k">Outcome</div>
+      <p>Now serves <span class="outcome-stat">195 registered clients</span> (124 Lambdas, 71 ECS stacks) across 10 teams and 7 AWS regions, processing <span class="outcome-stat">~9M requests/day at 99.9%+ success</span> — the ~0.1% of rejections cluster predictably around the daily key-rotation window rather than reflecting real failures. 76 of 79 client credentials were rotated without a single service interruption.</p>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="case-head">
+      <h3>Reliable fan-in signals for an unpredictable worker count</h3>
+      <span class="case-tag">Sync Batch Tracking</span>
+    </div>
+    <div class="case-sub">Go · AWS SQS &amp; DynamoDB · idempotent coordination</div>
+    <div class="case-block">
+      <div class="k">Problem</div>
+      <p>Bridging a legacy PHP sync system to a new Go watch-channel service meant answering one question reliably: when have all the parallel SQS sync workers for a batch finished — given that the worker count isn't known up front and any worker can fail partway through?</p>
+    </div>
+    <div class="case-block">
+      <div class="k">Approach</div>
+      <p>Built the fan-in point as atomic, idempotent DynamoDB counters, so the completion signal fires exactly once per run no matter the worker count or the order workers finish in. Before opening the pull request, a self-run audit caught defects that would have left syncs reading "in progress" forever; the team review that followed raised 9 more findings — 6 fixed, 3 pushed back on with reasoning the team accepted.</p>
+    </div>
+    <div class="diagram">
+      <svg viewBox="0 0 640 180" role="img" aria-label="Diagram: four parallel SQS workers feed an idempotent DynamoDB counter, which fires a single completion signal once all workers finish">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+          </marker>
+        </defs>
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--fg)">
+          <g>
+            <rect x="12" y="10" width="92" height="30" rx="6" fill="var(--mono-chip)" stroke="var(--border)"/>
+            <text x="58" y="29" text-anchor="middle">worker 1</text>
+            <rect x="12" y="52" width="92" height="30" rx="6" fill="var(--mono-chip)" stroke="var(--border)"/>
+            <text x="58" y="71" text-anchor="middle">worker 2</text>
+            <rect x="12" y="94" width="92" height="30" rx="6" fill="var(--mono-chip)" stroke="var(--border)"/>
+            <text x="58" y="113" text-anchor="middle">worker 3</text>
+            <rect x="12" y="136" width="92" height="30" rx="6" fill="var(--mono-chip)" stroke="var(--border)"/>
+            <text x="58" y="155" text-anchor="middle">worker N</text>
+          </g>
+          <line x1="104" y1="25" x2="258" y2="80" stroke="var(--muted)" stroke-width="1.3" marker-end="url(#arrow)"/>
+          <line x1="104" y1="67" x2="258" y2="85" stroke="var(--muted)" stroke-width="1.3" marker-end="url(#arrow)"/>
+          <line x1="104" y1="109" x2="258" y2="92" stroke="var(--muted)" stroke-width="1.3" marker-end="url(#arrow)"/>
+          <line x1="104" y1="151" x2="258" y2="97" stroke="var(--muted)" stroke-width="1.3" marker-end="url(#arrow)"/>
+          <rect x="262" y="58" width="150" height="58" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>
+          <text x="337" y="83" text-anchor="middle" font-weight="500">DynamoDB</text>
+          <text x="337" y="100" text-anchor="middle" font-size="9.5">idempotent counter</text>
+          <line x1="412" y1="87" x2="520" y2="87" stroke="var(--accent)" stroke-width="1.6" marker-end="url(#arrow)"/>
+          <rect x="524" y="62" width="108" height="50" rx="8" fill="var(--mono-chip)" stroke="var(--border)"/>
+          <text x="578" y="83" text-anchor="middle" font-size="9.5">completion</text>
+          <text x="578" y="97" text-anchor="middle" font-size="9.5">signal · fires once</text>
+        </g>
+      </svg>
+      <div class="diagram-caption">N workers, one counter, exactly one completion signal — regardless of N or finish order</div>
+    </div>
+    <div class="case-block">
+      <div class="k">Outcome</div>
+      <p>A correctness-critical coordination primitive now running in production with zero incidents since launch — the connective tissue between SysCloud's legacy PHP and modern Go systems.</p>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="case-head">
+      <h3>Building AI tooling nobody asked for</h3>
+      <span class="case-tag">AI-Assisted Engineering</span>
+    </div>
+    <div class="case-sub">Self-initiated · outside assigned scope</div>
+    <div class="case-block">
+      <div class="k">Problem</div>
+      <p>Three slow, repeated costs sat in plain sight but on nobody's roadmap: hand-writing every new compliance detection policy, re-investigating incidents the team had already solved before, and manually compiling status updates from task trackers.</p>
+    </div>
+    <div class="case-block">
+      <div class="k">Approach</div>
+      <p>Built three tools independently. A system prompt that turns a natural-language policy description into a validated workflow-engine config. A persistent knowledge base for the team's Claude-based debugging agent, so it references prior incident fixes instead of re-investigating from scratch. A personal Azure DevOps MCP integration that reads full task and child-task descriptions to automate work reporting.</p>
+    </div>
+    <div class="case-block">
+      <div class="k">Outcome</div>
+      <p>The policy generator alone added <span class="outcome-stat">7 compliance policies</span> with minimal manual effort, on top of 6 migrated by hand. None of it was requested — it got built because the repeated cost was visible and the fix was within reach.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="edu">
+    <div>
+      <div class="deg">B.Tech, Computer Science Engineering</div>
+      <div class="muted" style="font-size:0.88rem;">SRM University, Chennai</div>
+    </div>
+    <div class="yr">2020</div>
+  </div>
+  <div class="foot-links">
+    <a href="https://linkedin.com/in/arkesh-jayakumar-836866190" target="_blank" rel="noopener">LinkedIn</a>
+    <span class="mono muted">arkeshjayakumar@gmail.com</span>
+    <span class="mono muted">+91 89395 96433</span>
+  </div>
+  <p class="foot-note">Figures above are drawn from production systems at SysCloud Technologies and reflect reported metrics as of 2026.</p>
+</footer>
+
+<script>
+(function(){
+  try {
+    var btn = document.getElementById('copy-email');
+    var text = document.getElementById('email-text');
+    if (btn && text) {
+      btn.addEventListener('click', function(){
+        var val = text.textContent;
+        function fallback(){
+          try {
+            var r = document.createRange();
+            r.selectNodeContents(text);
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(r);
+          } catch(e){}
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(val).then(function(){
+            btn.textContent = 'Copied';
+            setTimeout(function(){ btn.textContent = 'Copy'; }, 1500);
+          }).catch(fallback);
+        } else {
+          fallback();
+        }
+      });
+    }
+  } catch(e){}
+})();
+</script>
+</body></html>
