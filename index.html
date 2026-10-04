@@ -316,7 +316,7 @@
 <section class="wide">
   <div class="section-head">
     <h2>Case studies</h2>
-    <span class="muted mono" style="font-size:0.78rem;">3 deep dives</span>
+    <span class="muted mono" style="font-size:0.78rem;">4 deep dives</span>
   </div>
 
   <div class="case">
@@ -409,6 +409,30 @@
     <div class="case-block">
       <div class="k">Outcome</div>
       <p>The policy generator alone added <span class="outcome-stat">7 compliance policies</span> with minimal manual effort, on top of 6 migrated by hand. None of it was requested — it got built because the repeated cost was visible and the fix was within reach.</p>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="case-head">
+      <h3>An AI travel assistant, measured by evals</h3>
+      <span class="case-tag">Personal project</span>
+    </div>
+    <div class="case-sub">MCP &middot; RAG &middot; Claude Agent SDK &middot; FastAPI &middot; React</div>
+    <div class="case-block">
+      <div class="k">Problem</div>
+      <p>Planning an Indian domestic flight means juggling live fares, airline fare rules, passenger-rights policy and personal preferences across several sites, and a plain chatbot will happily invent a fee or a rule.</p>
+    </div>
+    <div class="case-block">
+      <div class="k">Approach</div>
+      <p>Built a 9-tool MCP server for live fare search (Google Flights via SerpApi), day-of-travel status (AirLabs), saved preferences and policy search. Added a RAG layer over official IndiGo, Air India, Akasa and DGCA pages, using hybrid retrieval (SQLite FTS5 plus local bge-small embeddings) so every rule comes back cited and freshness-checked. A Claude Agent SDK planner ties it together with guardrails enforced in code, and a React and FastAPI chat UI shows live tool activity and flight cards that redirect to the airline's booking page. It never books or pays.</p>
+    </div>
+    <div class="diagram">
+      <a href="https://github.com/rkZ-10/travel-assistant"><img src="https://raw.githubusercontent.com/rkZ-10/travel-assistant/master/docs/images/chat-answer.png" alt="Travel Assistant web UI answering a cheapest-flight query with tool activity, applied preferences and cited fare rules" style="width:100%;height:auto;border:1px solid var(--border);border-radius:10px;" loading="lazy"></a>
+      <div class="diagram-caption">The chat UI: live tool activity, saved preferences applied, fare rules with sources</div>
+    </div>
+    <div class="case-block">
+      <div class="k">Outcome</div>
+      <p>A <span class="outcome-stat">23-case eval suite</span> scores tool use, arguments, citations and whether every &#8377; amount came from a tool, and the latest full run passes <span class="outcome-stat">23/23</span>. The evals caught real regressions (such as quoting a pricier fare type's fee), which were then fixed. Runs locally on your own Claude login or API key. <a href="https://github.com/rkZ-10/travel-assistant">View the code on GitHub &#8599;</a></p>
     </div>
   </div>
 </section>
