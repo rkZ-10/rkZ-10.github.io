@@ -436,7 +436,7 @@
     </div>
     <div class="case-block">
       <div class="k">Approach</div>
-      <p>Built a 9-tool MCP server for live fare search (Google Flights via SerpApi), day-of-travel status (AirLabs), saved preferences and policy search. Added a RAG layer over official IndiGo, Air India, Akasa and DGCA pages, using hybrid retrieval (SQLite FTS5 plus local bge-small embeddings) so every rule comes back cited and freshness-checked. A Claude Agent SDK planner ties it together with guardrails enforced in code, and a React and FastAPI chat UI shows live tool activity and flight cards that redirect to the airline's booking page. It never books or pays.</p>
+      <p>Built a 9-tool MCP server for live fare search (Google Flights via SerpApi), day-of-travel status (AirLabs), saved preferences and policy search. Added a RAG layer over official IndiGo, Air India, Air India Express, Akasa, SpiceJet, Alliance Air and DGCA pages, using hybrid retrieval (SQLite FTS5 plus local bge-small embeddings) so every rule comes back cited and freshness-checked. A Claude Agent SDK planner ties it together with guardrails enforced in code, and a React and FastAPI chat UI shows live tool activity and flight cards that redirect to the airline's booking page. It never books or pays.</p>
     </div>
     <div class="diagram">
       <a href="https://github.com/rkZ-10/travel-assistant"><img src="https://raw.githubusercontent.com/rkZ-10/travel-assistant/master/docs/images/chat-answer.png" alt="Travel Assistant web UI answering a cheapest-flight query with tool activity, applied preferences and cited fare rules" style="width:100%;height:auto;border:1px solid var(--border);border-radius:10px;" loading="lazy"></a>
@@ -444,7 +444,7 @@
     </div>
     <div class="case-block">
       <div class="k">Outcome</div>
-      <p>A <span class="outcome-stat">23-case eval suite</span> scores tool use, arguments, citations and whether every &#8377; amount came from a tool, and the latest full run passes <span class="outcome-stat">23/23</span>. The evals caught real regressions (such as quoting a pricier fare type's fee), which were then fixed. Runs locally on your own Claude login or API key. <a href="https://github.com/rkZ-10/travel-assistant">View the code on GitHub &#8599;</a></p>
+      <p>A <span class="outcome-stat">23-case eval suite</span> scores tool use, arguments, citations and whether every &#8377; amount came from a tool, and the latest full run passes <span class="outcome-stat">23/23</span>. The evals caught real regressions (such as quoting a pricier fare type's fee), which were then fixed. Runs locally on your own Claude login or API key. <a href="https://rkz-10.github.io/blog/posts/building-a-travel-assistant">Read the write-up</a> · <a href="https://github.com/rkZ-10/travel-assistant">View the code on GitHub &#8599;</a></p>
     </div>
   </div>
 </section>
