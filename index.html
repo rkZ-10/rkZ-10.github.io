@@ -7,7 +7,7 @@
 <title>Arkesh Jayakumar</title>
 <meta property="og:type" content="website">
 <meta property="og:title" content="Arkesh Jayakumar | Backend Engineer: Security &amp; AI Tooling">
-<meta property="og:description" content="Four case studies: a secrets platform serving ~9M requests/day, event-driven coordination across legacy PHP and Go systems, self-built AI tooling, and an MCP/RAG travel agent.">
+<meta property="og:description" content="Five case studies: a secrets platform serving ~9M requests/day, event-driven coordination across legacy PHP and Go systems, self-built AI tooling, an MCP/RAG travel agent, and peer-to-peer voice reliability work.">
 <meta property="og:url" content="https://rkz-10.github.io/">
 <meta property="og:image" content="https://rkz-10.github.io/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -445,6 +445,26 @@
     <div class="case-block">
       <div class="k">Outcome</div>
       <p>A <span class="outcome-stat">23-case eval suite</span> scores tool use, arguments, citations and whether every &#8377; amount came from a tool, and the latest full run passes <span class="outcome-stat">23/23</span>. The evals caught real regressions (such as quoting a pricier fare type's fee), which were then fixed. Runs locally on your own Claude login or API key. <a href="https://rkz-10.github.io/blog/posts/building-a-travel-assistant">Read the write-up</a> · <a href="https://github.com/rkZ-10/travel-assistant">View the code on GitHub &#8599;</a></p>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="case-head">
+      <h3>Making peer-to-peer voice calls reliable</h3>
+      <span class="case-tag">Open-source contribution</span>
+    </div>
+    <div class="case-sub">TypeScript &middot; WebRTC &middot; Web Audio &middot; Electron</div>
+    <div class="case-block">
+      <div class="k">Problem</div>
+      <p>Eleusinia, a friend's serverless Discord alternative, sends calls directly between people. That makes everyday failures (a Wi-Fi blip, an unplugged headset, a network without IPv4) end a call silently.</p>
+    </div>
+    <div class="case-block">
+      <div class="k">Approach</div>
+      <p>Joined as a contributor and added automatic recovery (ICE restart, then rebuilds with backoff) in a unit-tested state module, a fallback to the default device when a headset disappears, IPv6 support for the relay path, speaking indicators and per-person volume through Web Audio, and fixes to the screen share picker.</p>
+    </div>
+    <div class="case-block">
+      <div class="k">Outcome</div>
+      <p>Calls come back by themselves after network drops. The end-to-end test went from failing most runs on the public network to passing every run on a local test network, and it never captures real screen content. Ongoing. <a href="https://github.com/mmhfn1/Eleusinia" target="_blank" rel="noopener">View the project on GitHub &#8599;</a></p>
     </div>
   </div>
 </section>
