@@ -21,7 +21,7 @@ The companion blog lives at https://rkz-10.github.io/blog/ (a separate repo).
 
 - Reuse existing classes and tokens; don't add CSS unless asked, and never a framework or build step.
 - Check every change in light mode, dark mode and at phone width (~390 px, no horizontal scroll).
-- Contact details: don't add new ones (email is the public contact).
+- Contact details: keep the existing ones as they are and don't add new ones.
 - Keep claims accurate and specific; numbers on the page must match the linked projects.
 - Links to my own sites (blog) open in the same tab; external links keep `target="_blank" rel="noopener"`.
 - Images: `loading="lazy"`, meaningful `alt` text, sized to the content column.
